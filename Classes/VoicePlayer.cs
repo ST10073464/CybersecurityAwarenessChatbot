@@ -2,7 +2,7 @@
 using System;
 using System.Media;
 
-namespace CybersecurityAwarenessChatbot.Bot
+namespace CybersecurityAwarenessChatbot.Classes
 {
     class VoicePlayer
     {
@@ -10,7 +10,7 @@ namespace CybersecurityAwarenessChatbot.Bot
         {
             try
             {
-                SoundPlayer player = new SoundPlayer(@"C:\Users\Student\Desktop\Prog6221\CybersecurityAwarenessChatbot\PART_1\CybersecurityAwarenessChatbot\hello.wav");
+                SoundPlayer player = new SoundPlayer(@"C:\Users\Student\Desktop\Prog6221\CybersecurityAwarenessChatbot\PART_1\CybersecurityAwarenessChatbot\Audio\hello.wav");
 
                 player.Load();
                 player.PlaySync();

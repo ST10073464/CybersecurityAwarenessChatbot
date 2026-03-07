@@ -1,6 +1,7 @@
 ﻿using System;
 
-namespace CybersecurityAwarenessChatbot.Bot
+namespace CybersecurityAwarenessChatbot.Classes
+
 {
     class UIHelper
     {

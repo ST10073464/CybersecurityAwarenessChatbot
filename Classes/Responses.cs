@@ -1,4 +1,5 @@
-﻿namespace CybersecurityAwarenessChatbot.Bot
+﻿namespace CybersecurityAwarenessChatbot.Classes
+
 {
     class Responses
     {
