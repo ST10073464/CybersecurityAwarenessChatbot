@@ -212,6 +212,7 @@ information through fake emails or websites.
 ## Author
 
 **Name:** Erwin Mashobane  
+**Student number:** ST10073464 
 **Module:** PROG6221/w  
 **Project:** Cybersecurity Awareness Chatbot  
 
