@@ -1,106 +1,181 @@
-﻿/*
-    Erwin Mashobane
-    ST10073464
-*/
-namespace CybersecurityAwarenessChatbot.Classes
+﻿using System;
 
+namespace CybersecurityAwarenessChatbot.Classes
 {
     class Responses
     {
-        // This method takes user input and returns an appropriate response based on keywords
+        private static Random rand = new Random();
+
         public string GetResponse(string input)
         {
-            
+            input = input.ToLower().Trim();
+
             // Greeting
-            if (input.Contains("how are you"))
+            if (Contains(input, "how are you", "hello", "hey", "hi"))
             {
-                return "I'm fully operational and ready to help you stay safe online!";
+                return RandomResponse(
+                    "Hey there How can I help you stay safe online today?",
+                    "Hi! Ready to learn how to protect yourself online?",
+                    "Hello! I'm here to help you stay secure online"
+                );
             }
 
             // Purpose
-            else if (input.Contains("purpose") || input.Contains("what do you do"))
+            else if (Contains(input, "purpose", "what do you do"))
             {
-                return "My purpose is to educate you about cybersecurity and help you avoid online threats.";
+                return RandomResponse(
+                    "My purpose is to help you understand cybersecurity and stay safe online.",
+                    "I guide you on how to avoid online threats and protect your data.",
+                    "I'm here to teach you how to stay secure in the digital world."
+                );
             }
 
             // Password Safety
-            else if (input.Contains("password"))
+            else if (Contains(input, "password"))
             {
-                return "A strong password should be at least 8–12 characters long and include uppercase letters, lowercase letters, numbers, and symbols. Avoid using personal information.";
+                return RandomResponse(
+                    "A strong password should include uppercase, lowercase, numbers, and symbols",
+                    "Make your passwords long and unique. Avoid using personal info!",
+                    "Tip: Use a mix of characters and never reuse passwords across sites."
+                );
             }
 
-            // Password Tips Advanced
-            else if (input.Contains("strong password") || input.Contains("create password"))
+            // Advanced Password
+            else if (Contains(input, "strong password", "create password"))
             {
-                return "Try using a passphrase like 'BlueSky#2026!' — it's easier to remember and harder to crack.";
+                return RandomResponse(
+                    "Try a passphrase like 'BlueSky#2026!' — strong and memorable.",
+                    "Use a sentence-style password, it's harder to crack.",
+                    "Combine random words with symbols for better security."
+                );
             }
 
             // Phishing
-            else if (input.Contains("phishing"))
+            else if (Contains(input, "phishing", "scam"))
             {
-                return "Phishing is when scammers trick you into giving personal information through fake emails or websites. Always check the sender and avoid clicking suspicious links.";
+                return RandomResponse(
+                    "Phishing tricks you into giving personal info through fake emails or sites.",
+                    "Always double-check emails before clicking links — scammers are sneaky!",
+                    "If something feels urgent or suspicious, it’s probably a scam."
+                );
             }
 
-            // Phishing Scenario
-            else if (input.Contains("suspicious email") || input.Contains("fake email"))
+            // Suspicious Emails
+            else if (Contains(input, "suspicious email", "fake email"))
             {
-                return "If an email asks for urgent action or personal info, verify it directly with the company. Never click unknown links.";
+                return RandomResponse(
+                    "Never click unknown links. Verify emails directly with the company.",
+                    "Check the sender’s address carefully — scammers fake identities.",
+                    "If it asks for personal info urgently, it's likely a scam."
+                );
             }
 
-            // Safe Browsing
-            else if (input.Contains("safe browsing") || input.Contains("browser safety"))
+            // Browsing
+            else if (Contains(input, "safe browsing", "browser", "website"))
             {
-                return "Always check for HTTPS in the URL, avoid downloading from unknown sites, and keep your browser updated.";
+                return RandomResponse(
+                    "Always look for HTTPS before entering sensitive info.",
+                    "Avoid downloading from unknown websites.",
+                    "Keep your browser updated for better protection."
+                );
             }
 
             // Links
-            else if (input.Contains("link") || input.Contains("url"))
+            else if (Contains(input, "link", "url"))
             {
-                return "Hover over links before clicking to see the real URL. If it looks suspicious, don’t click it.";
+                return RandomResponse(
+                    "Hover over links to see where they really go.",
+                    "Shortened links can hide dangerous sites — be careful!",
+                    "If a link looks suspicious, don’t click it."
+                );
             }
 
             // Malware
-            else if (input.Contains("malware") || input.Contains("virus"))
+            else if (Contains(input, "malware", "virus"))
             {
-                return "Malware is harmful software that can damage your system or steal data. Install antivirus software and avoid suspicious downloads.";
+                return RandomResponse(
+                    "Malware can steal data or damage your system — avoid unsafe downloads.",
+                    "Install antivirus software and keep it updated.",
+                    "Be careful what you install — not all software is safe."
+                );
             }
 
             // Social Engineering
-            else if (input.Contains("social engineering"))
+            else if (Contains(input, "social engineering"))
             {
-                return "Social engineering is when attackers manipulate people into revealing confidential information. Always verify requests before sharing sensitive data.";
+                return RandomResponse(
+                    "Attackers manipulate people to get sensitive info — stay alert.",
+                    "Never trust unexpected requests for personal data.",
+                    "Always verify before sharing confidential information."
+                );
             }
 
             // Personal Data
-            else if (input.Contains("personal information") || input.Contains("data protection"))
+            else if (Contains(input, "personal information", "data protection"))
             {
-                return "Never share sensitive information like passwords, ID numbers, or banking details online unless you're sure the site is secure.";
+                return RandomResponse(
+                    "Never share sensitive info unless you're sure the site is secure.",
+                    "Protect your identity — don’t overshare online.",
+                    "Keep your personal data private and secure."
+                );
             }
 
-            // WiFi Safety
-            else if (input.Contains("wifi") || input.Contains("public wifi"))
+            // WiFi
+            else if (Contains(input, "wifi", "public wifi"))
             {
-                return "Avoid logging into sensitive accounts on public WiFi. Use a VPN if possible to protect your data.";
+                return RandomResponse(
+                    "Public WiFi is risky — avoid logging into sensitive accounts.",
+                    "Use a VPN when using public networks.",
+                    "Hackers can intercept data on public WiFi."
+                );
             }
 
-            // Two-Factor Authentication
-            else if (input.Contains("2fa") || input.Contains("two factor"))
+            // 2FA
+            else if (Contains(input, "2fa", "two factor"))
             {
-                return "Two-Factor Authentication adds an extra layer of security by requiring a second verification step. Always enable it where possible.";
+                return RandomResponse(
+                    "2FA adds an extra layer of security — always enable it!",
+                    "Even if your password is stolen, 2FA keeps you safe.",
+                    "It’s one of the best ways to protect your accounts."
+                );
             }
 
             // What can I ask
-            else if (input.Contains("what can i ask"))
+            else if (Contains(input, "what can i ask"))
             {
-                return "You can ask me about passwords, phishing, malware, safe browsing, and protecting your personal data.";
+                return RandomResponse(
+                    "You can ask about passwords, scams, malware, or safe browsing.",
+                    "Try asking me about online threats or how to protect yourself.",
+                    "I can help with cybersecurity tips and best practices."
+                );
             }
 
-            // Default response
+            // Default (AI-like fallback)
             else
             {
-                return "Hmm I’m not sure about that yet. Try asking about passwords, phishing, or safe browsing!";
+                return RandomResponse(
+                    "Hmm I’m not sure I understood that. Try asking about cybersecurity topics.",
+                    "Interesting… could you rephrase that in terms of online safety?",
+                    "I'm still learning — try asking about passwords, scams, or browsing safety."
+                );
             }
+        }
 
+        // Helper: Keyword matching
+        private bool Contains(string input, params string[] keywords)
+        {
+            foreach (var word in keywords)
+            {
+                if (input.Contains(word))
+                    return true;
+            }
+            return false;
+        }
+
+        // Helper: AI-style random responses
+        private string RandomResponse(params string[] responses)
+        {
+            return responses[rand.Next(responses.Length)];
         }
     }
 }

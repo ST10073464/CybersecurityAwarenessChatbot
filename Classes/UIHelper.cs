@@ -33,6 +33,9 @@ namespace CybersecurityAwarenessChatbot.Classes
             Thread.Sleep(800);
 
             Console.ResetColor();
+
+
         }
+
     }
 }

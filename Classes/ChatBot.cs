@@ -10,8 +10,10 @@ using System.Collections;
 namespace CybersecurityAwarenessChatbot.Classes
 
 {
+    
     class ChatBot
     {
+        List<(string message, DateTime time)> conversationHistory = new List<(string, DateTime)>();
         public string UserName { get; set; }
 
         UIHelper ui = new UIHelper();
@@ -88,15 +90,51 @@ namespace CybersecurityAwarenessChatbot.Classes
                 // Exit condition
                 if (input == "exit")
                 {
+                    Console.Write("\nBot: Would you like to see your conversation before exiting? (yes/no): ");
+                    string choice = Console.ReadLine().ToLower().Trim();
+
+                    while (choice != "yes" && choice != "no")
+                    {
+                        Console.Write("Please type 'yes' or 'no': ");
+                        choice = Console.ReadLine().ToLower().Trim();
+                    }
+
+                    if (choice == "yes")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("\n===== Conversation History =====\n");
+
+                        for (int i = 0; i < conversationHistory.Count; i++)
+                        {
+                            var entry = conversationHistory[i];
+
+                            string time = entry.time.ToString("HH:mm:ss");
+
+                            // Alternate colors for user & bot
+                            if (i % 2 == 0)
+                                Console.ForegroundColor = ConsoleColor.White;   // User
+                            else
+                                Console.ForegroundColor = ConsoleColor.Green;   // Bot
+
+                            Console.WriteLine($"[{time}] {entry.message}");
+                        }
+
+                        Console.WriteLine("\n================================");
+                    }
+
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"\nBot: Goodbye {UserName}! Stay safe online and keep winning");
                     break;
                 }
 
-
                 // Get response from Responses class and display it     
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Bot: " + responses.GetResponse(input));
+                string botReply = responses.GetResponse(input);
+
+                conversationHistory.Add(("You: " + input, DateTime.Now));
+                conversationHistory.Add(("Bot: " + botReply, DateTime.Now));
+
+                Console.WriteLine("Bot: " + botReply);
             }
         }
     }
