@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace CybersecurityAwarenessChatbot.Classes
 
@@ -9,18 +10,23 @@ namespace CybersecurityAwarenessChatbot.Classes
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.WriteLine("=========================================");
-            Console.WriteLine("     CYBERSECURITY AWARENESS BOT");
-            Console.WriteLine("=========================================");
-            Console.WriteLine("          _________");
-            Console.WriteLine("         /         \\");
-            Console.WriteLine("        /  LOCKED   \\");
-            Console.WriteLine("       |   CYBER     |");
-            Console.WriteLine("       |  SECURITY   |");
-            Console.WriteLine("        \\___________/");
-            Console.WriteLine("           ||   ||");
-            Console.WriteLine("           ||   ||");
-            Console.WriteLine("=========================================\n");
+            Console.WriteLine("==================================================");
+            Console.WriteLine("         CYBERSECURITY AWARENESS BOT");
+            Console.WriteLine("==================================================");
+            Console.WriteLine(@" _____                           _    _ _       
+/  ___|                         | |  | (_)      
+\ `--.  ___  ___ _   _ _ __ ___ | |  | |_ _ __  
+ `--. \/ _ \/ __| | | | '__/ _ \| |/\| | | '_ \ 
+/\__/ /  __/ (__| |_| | | |  __/\  /\  / | | | |
+\____/ \___|\___|\__,_|_|  \___| \/  \/|_|_| |_|
+                                                
+                                                ");
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("         Stay Secure. Stay Winning Online.");
+            Console.WriteLine("==================================================\n");
+
+            Thread.Sleep(800);
 
             Console.ResetColor();
         }

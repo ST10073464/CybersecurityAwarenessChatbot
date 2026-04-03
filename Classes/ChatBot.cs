@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections;
+
 
 namespace CybersecurityAwarenessChatbot.Classes
 
@@ -8,8 +10,15 @@ namespace CybersecurityAwarenessChatbot.Classes
     {
         public string UserName { get; set; }
 
-        VoicePlayer voice = new VoicePlayer();
+        // 1. Show ASCII Logo
         UIHelper ui = new UIHelper();
+        
+        
+        
+        
+
+        VoicePlayer voice = new VoicePlayer();
+       
         Responses responses = new Responses();
 
         public void Start()
@@ -18,11 +27,20 @@ namespace CybersecurityAwarenessChatbot.Classes
 
             voice.PlayGreeting();
 
-            AskUserName();
 
-            Console.WriteLine($"\nWelcome {UserName}! I am your Cybersecurity Awareness Assistant.");
-            Console.WriteLine("Ask me about password safety, phishing, or safe browsing.");
-            Console.WriteLine("Type 'exit' to quit.\n");
+            AskUserName();
+            // Small pause for effect
+            Thread.Sleep(500);
+
+            Console.WriteLine($"\nHey {UserName}! Welcome to SecureWin");
+
+            Console.WriteLine("\nYou can chat with me about staying safe online, including:");
+            Console.WriteLine("     Creating strong passwords");
+            Console.WriteLine("     Spotting phishing scams");
+            Console.WriteLine("     Safe and smart browsing");
+
+            Console.WriteLine("\nGo ahead and ask me anything related to online safety!\n");
+            Console.WriteLine("Type 'exit' anytime to quit.\n");
 
             ChatLoop();
         }
@@ -37,6 +55,10 @@ namespace CybersecurityAwarenessChatbot.Classes
                 Console.WriteLine("Name cannot be empty. Please try again.");
                 UserName = Console.ReadLine();
             }
+
+            // Trim spaces and capitalize first letter
+            UserName = UserName.Trim();
+            UserName = char.ToUpper(UserName[0]) + UserName.Substring(1).ToLower();
         }
 
         void ChatLoop()
@@ -49,6 +71,8 @@ namespace CybersecurityAwarenessChatbot.Classes
                 Console.Write("\nYou: ");
 
                 input = Console.ReadLine().ToLower();
+                //  Case-InsensitiveComparer handling
+                input = input.ToLower().Trim();
 
                 if (string.IsNullOrWhiteSpace(input))
                 {
@@ -56,11 +80,11 @@ namespace CybersecurityAwarenessChatbot.Classes
                     continue;
                 }
 
-                // FIX: Check exit BEFORE responding
+                // Check exit BEFORE responding
                 if (input == "exit")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Bot: Goodbye! Stay safe online.");
+                    Console.WriteLine($"\nBot: Goodbye {UserName}! Stay safe online and keep winning");
                     break;
                 }
 
