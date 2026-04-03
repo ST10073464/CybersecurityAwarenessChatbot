@@ -1,4 +1,4 @@
-# Part 1: Cybersecurity Awareness Chatbot 
+ure# Part 1: Cybersecurity Awareness Chatbot 
 
 ## Overview
 The **Cybersecurity Awareness Chatbot** is a C# console application developed using **.NET 8**.  
@@ -27,7 +27,7 @@ When the chatbot launches, it plays a **voice greeting (WAV file)** to welcome t
 
 Example greeting:
 ```
-Hello! Welcome to the Cybersecurity Awareness Bot.
+Hello! Welcome to the SecureWin.
 I'm here to help you stay safe online.
 ```
 
@@ -125,7 +125,7 @@ CyberSecurityAwarenessBot
 │   └── UIHelper.cs
 │
 ├── Audio
-│   └── welcome.wav
+│   └── hello.wav
 │
 └── README.md
 ```
@@ -139,7 +139,7 @@ CyberSecurityAwarenessBot
 | Responses.cs | Contains chatbot responses to user questions |
 | VoicePlayer.cs | Plays the welcome voice message |
 | UIHelper.cs | Displays ASCII art and console UI formatting |
-| welcome.wav | Audio greeting file |
+| hello.wav | Audio greeting file |
 
 ---
 
