@@ -6,7 +6,6 @@ using System;
 using System.Threading;
 
 namespace CybersecurityAwarenessChatbot.Classes
-
 {
     class UIHelper
     {
