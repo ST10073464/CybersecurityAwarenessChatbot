@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+    Erwin Mashobane
+    ST10073464
+*/
+using System;
 using System.Threading;
 
 namespace CybersecurityAwarenessChatbot.Classes
@@ -6,6 +10,7 @@ namespace CybersecurityAwarenessChatbot.Classes
 {
     class UIHelper
     {
+        // Method to display the ASCII art logo and welcome message
         public void ShowLogo()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;

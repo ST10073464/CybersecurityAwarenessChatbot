@@ -1,8 +1,13 @@
-﻿namespace CybersecurityAwarenessChatbot.Classes
+﻿/*
+    Erwin Mashobane
+    ST10073464
+*/
+namespace CybersecurityAwarenessChatbot.Classes
 
 {
     class Responses
     {
+        // This method takes user input and returns an appropriate response based on keywords
         public string GetResponse(string input)
         {
             
@@ -78,7 +83,6 @@
                 return "Avoid logging into sensitive accounts on public WiFi. Use a VPN if possible to protect your data.";
             }
 
-
             // Two-Factor Authentication
             else if (input.Contains("2fa") || input.Contains("two factor"))
             {
@@ -97,7 +101,6 @@
                 return "Hmm I’m not sure about that yet. Try asking about passwords, phishing, or safe browsing!";
             }
 
-            
         }
     }
 }

@@ -1,16 +1,20 @@
-﻿
-using System;
+﻿/*
+    Erwin Mashobane
+    ST10073464
+*/
+
 using System.Media;
-using System.Threading;
 
 namespace CybersecurityAwarenessChatbot.Classes
 {
     class VoicePlayer
     {
+        // Plays a greeting sound when the chatbot starts
         public void PlayGreeting()
         {
             try
             {
+                
                 SoundPlayer player = new SoundPlayer(Properties.Resources.hello);
 
                 player.PlaySync();

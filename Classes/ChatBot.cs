@@ -1,4 +1,8 @@
 ﻿
+/*
+    Erwin Mashobane
+    ST10073464
+*/
 using System;
 using System.Collections;
 
@@ -10,28 +14,26 @@ namespace CybersecurityAwarenessChatbot.Classes
     {
         public string UserName { get; set; }
 
-        // 1. Show ASCII Logo
         UIHelper ui = new UIHelper();
-        
-        
-        
-        
 
         VoicePlayer voice = new VoicePlayer();
-       
+
         Responses responses = new Responses();
 
         public void Start()
         {
+            // Show ASCII Logo
             ui.ShowLogo();
 
+            // Play welcome audio
             voice.PlayGreeting();
 
-
             AskUserName();
+
             // Small pause for effect
             Thread.Sleep(500);
 
+            //  welcome message
             Console.WriteLine($"\nHey {UserName}! Welcome to SecureWin");
 
             Console.WriteLine("\nYou can chat with me about staying safe online, including:");
@@ -52,6 +54,7 @@ namespace CybersecurityAwarenessChatbot.Classes
 
             while (string.IsNullOrWhiteSpace(UserName))
             {
+                // warning message when user enters empty name
                 Console.WriteLine("Name cannot be empty. Please try again.");
                 UserName = Console.ReadLine();
             }
@@ -67,6 +70,7 @@ namespace CybersecurityAwarenessChatbot.Classes
 
             while (true)
             {
+
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("\nYou: ");
 
@@ -76,11 +80,12 @@ namespace CybersecurityAwarenessChatbot.Classes
 
                 if (string.IsNullOrWhiteSpace(input))
                 {
+                    // Check for empty input and prompt user to enter a valid question
                     Console.WriteLine("Bot: Please enter a valid question.");
                     continue;
                 }
 
-                // Check exit BEFORE responding
+                // Exit condition
                 if (input == "exit")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -88,9 +93,13 @@ namespace CybersecurityAwarenessChatbot.Classes
                     break;
                 }
 
+
+                // Get response from Responses class and display it     
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Bot: " + responses.GetResponse(input));
             }
         }
     }
 }
+
+
