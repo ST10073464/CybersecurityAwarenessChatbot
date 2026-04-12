@@ -194,6 +194,8 @@ information through fake emails or websites.
 ```
 
 ---
+<img width="1900" height="705" alt="image" src="https://github.com/user-attachments/assets/c8c69294-d60b-43ed-8a71-86bfbf5dadac" />
+
 
 ## Future Improvements
 
