@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    Erwin Mashobane
+    ST10073464
+*/
+using System;
+using System.Collections.Generic;
+//using System.Data;
 
 namespace CybersecurityAwarenessChatbot.Classes
 {
@@ -14,9 +20,9 @@ namespace CybersecurityAwarenessChatbot.Classes
             if (Contains(input, "how are you", "hello", "hey", "hi"))
             {
                 return RandomResponse(
-                    "Hey there How can I help you stay safe online today?",
-                    "Hi! Ready to learn how to protect yourself online?",
-                    "Hello! I'm here to help you stay secure online"
+                    $"Hey there How can I help you stay safe online today?",
+                    $"Hi! Ready to learn how to protect yourself online?",
+                    $"Hello! I'm here to help you stay secure online"
                 );
             }
 

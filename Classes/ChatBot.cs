@@ -5,7 +5,7 @@
 */
 using System;
 using System.Collections;
-
+using System.Data;
 
 namespace CybersecurityAwarenessChatbot.Classes
 
@@ -120,6 +120,7 @@ namespace CybersecurityAwarenessChatbot.Classes
                         }
 
                         Console.WriteLine("\n================================");
+                        conversationHistory.Clear(); // clear history after displaying
                     }
 
                     Console.ForegroundColor = ConsoleColor.Green;

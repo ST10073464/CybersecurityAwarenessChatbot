@@ -33,9 +33,15 @@ namespace CybersecurityAwarenessChatbot.Classes
             Thread.Sleep(800);
 
             Console.ResetColor();
-
-
         }
-
+        public void TypeText(string text)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                Thread.Sleep(20);
+            }
+            Console.WriteLine();
+        }
     }
 }
