@@ -2,7 +2,7 @@
     Erwin Mashobane
     ST10073464
 */
-using System;
+/*using System;
 using System.Threading;
 
 namespace CybersecurityAwarenessChatbot.Classes
@@ -42,6 +42,26 @@ namespace CybersecurityAwarenessChatbot.Classes
                 Thread.Sleep(20);
             }
             Console.WriteLine();
+        }
+    }
+}*/
+
+namespace CybersecurityAwarenessChatbot.Classes
+{
+    // Loads SecureWin ASCII art.
+    public static class UIHelper
+    {
+        public static string LoadAsciiArt()
+        {
+            return @"
+ ███████╗███████╗ ██████╗██╗   ██╗██████╗ ███████╗██╗    ██╗██╗███╗   ██╗
+ ██╔════╝██╔════╝██╔════╝██║   ██║██╔══██╗██╔════╝██║    ██║██║████╗  ██║
+ ███████╗█████╗  ██║     ██║   ██║██████╔╝█████╗  ██║ █╗ ██║██║██╔██╗ ██║
+ ╚════██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝  ██║███╗██║██║██║╚██╗██║
+ ███████║███████╗╚██████╗╚██████╔╝██║  ██║███████╗╚███╔███╔╝██║██║ ╚████║
+ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝
+                🛡️ Protecting South African Citizens Online 🛡️
+";
         }
     }
 }
