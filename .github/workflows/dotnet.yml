@@ -5,24 +5,35 @@ name: .NET
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
+      - master
+
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
+      - master
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore -p:EnableWindowsTargeting=true
-    - name: Build
-      run: dotnet build --no-restore -p:EnableWindowsTargeting=true
-    - name: Test
+        dotnet-version: '8.0.x'
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Run Tests
       run: dotnet test --no-build --verbosity normal
